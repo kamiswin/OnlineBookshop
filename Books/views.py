@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 import os
 
 def home(request):
-    s = 'running localy'
-    if 'LOCAL' != os.environ.get('ENV', 'HEROKU'):
-        s = 'running on heroku'
-    return HttpResponse('<pre>' + s + '</pre>')
-# Create your views here.
+    return render(request, 'index.html')
+
+@login_required
+def show_login(request):
+    return HttpResponseRedirect('/')

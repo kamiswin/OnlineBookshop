@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "bower_components/pure/pure-min.css" %}">
+    <link rel="stylesheet" href="{% static "layout/side-menu.css" %}">
+</head>
+<body>
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+    <div id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#">Bookshop</a>
+
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#">Books</a></li>
+
+                <li class="menu-item-divided pure-menu-selected">
+                <a href="#">Search</a>
+                </li>
+
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</html>

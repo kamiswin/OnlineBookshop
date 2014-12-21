@@ -69,6 +69,10 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'template'),        
+)
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -92,9 +96,6 @@ if 'LOCAL' != os.environ.get('ENV', 'HEROKU'):
 
 # Allow all host headers
     ALLOWED_HOSTS = ['*']
-    print 'running on heroku'
-else:
-    print 'running localy'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'

@@ -1,3 +1,4 @@
 staticfiles/
 venv/
 *.pyc
+.DS_store

@@ -36,9 +36,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Books',
+    'Bookshop',
     'tastypie',
 )
+
+AUTH_USER_MODEL = 'Bookshop.Account'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -87,7 +89,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-if 'LOCAL' != os.environ.get('ENV', 'HEROKU'):
+if 'LOCAL' != os.environ.get('ENV', 'LOCAL'):
     import dj_database_url
     DATABASES['default'] =  dj_database_url.config()
 

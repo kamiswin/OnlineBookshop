@@ -1,5 +1,5 @@
 from tastypie.resources import ModelResource
-from Books.models import Book
+from Bookshop.models import Book
 
 class BookResource(ModelResource):
     class Meta:

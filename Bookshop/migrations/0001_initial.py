@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 import django.utils.timezone
+from django.conf import settings
 import django.core.validators
 
 
@@ -30,6 +31,19 @@ class Migration(migrations.Migration):
             name='Order',
             fields=[
                 ('oid', models.AutoField(serialize=False, primary_key=True)),
+                ('state', models.CharField(max_length=20, choices=[(b'u', b'uncomplete'), (b'p', b'processing'), (b'c', b'complete')])),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='OrderBookRelation',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('number_of_book', models.IntegerField()),
+                ('bid', models.ForeignKey(to='Bookshop.Book')),
+                ('oid', models.ForeignKey(to='Bookshop.Order')),
             ],
             options={
             },
@@ -51,7 +65,7 @@ class Migration(migrations.Migration):
                 ('date_joined', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date joined')),
                 ('address', models.TextField()),
                 ('groups', models.ManyToManyField(related_query_name='user', related_name='user_set', to='auth.Group', blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of his/her group.', verbose_name='groups')),
-                ('orders', models.ManyToManyField(to='Bookshop.Order')),
+                ('recommend_books', models.ManyToManyField(to='Bookshop.Book')),
                 ('user_permissions', models.ManyToManyField(related_query_name='user', related_name='user_set', to='auth.Permission', blank=True, help_text='Specific permissions for this user.', verbose_name='user permissions')),
             ],
             options={
@@ -60,5 +74,17 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'users',
             },
             bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='order',
+            name='aid',
+            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='order',
+            name='books',
+            field=models.ManyToManyField(to='Bookshop.Book', through='Bookshop.OrderBookRelation'),
+            preserve_default=True,
         ),
     ]

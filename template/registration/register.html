@@ -3,11 +3,11 @@
 {% block content %} 
 
 <div class="header">
-    <h2>Login | Register</h2>
+    <h2>Register | Login</h2>
 </div>
 <div id="main" class="content pure-g">
     <div id="main" class="pure-u-1-2">
-        <legend>Please Enter your Username & Password</legend>
+        <legend>Please Enter your Personal Information</legend>
         <div class="">
             <form action="" method="post" class="pure-form pure-form-stacked">
                 <fieldset>
@@ -20,8 +20,16 @@
                         <label for="password">Password:</label>
                         <input type="password" name="password" value="" id="password">
                     </div>
+                    <div class="pure-control-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" value="" id="email">
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="address">Address:</label>
+                        <input type="text" name="address" value="" id="address">
+                    </div>
                     <div class="pure-controls">
-                        <button type="submit" class="pure-button pure-button-primary"><i class="fa fa-sign-in fa-lg"></i> Login</button>
+                        <button type="submit" class="pure-button button-register button-secondary"><i class="fa fa-user fa-lg"></i> Register</button>
                     </div>
                     <input type="hidden" name="next" value="{{ next|escape }}" />
                 </fieldset>
@@ -33,9 +41,9 @@
         </div>
     </div>
     <div class="pure-u-1-2">
-        <legend>Have not an Account yet?</legend>
-        <form class="pure-form" action="/accounts/register">
-            <button class="pure-button button-secondary button-register"><i class="fa fa-user fa-lg"></i> Register</button>
+        <legend>Have an Account already?</legend>
+        <form class="pure-form" action="/accounts/login">
+            <button class="pure-button pure-button-primary"><i class="fa fa-sign-in fa-lg"></i> Login</button>
         </form>
     </div>
 </div>

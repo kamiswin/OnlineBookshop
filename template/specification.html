@@ -1,79 +1,82 @@
 {% extends "base.html" %}
-{% block title %}lalala{% endblock %}
+{% block title %}Book - {{ book.name }}{% endblock %}
 {% block content %} 
 <div id="main" class="content book-specification-wrapper">
-<div id="book-specification" class="pure-g content-wrapper">
-<div class="pure-u-1-3">
-    {% load staticfiles %}
-    <img class="pure-img-responsive" src="{% static "img/books/book_covers/Harry_Potter_and_his_Friends.jpeg" %}" alt="{{ book_name }}">
-</div>
-<div class="pure-u-2-3">
-    <h1>Harry Potter and his Friends</h1>
-    <p>
-    Pure Grids are easy to work with, and very powerful. There are a few simple concepts to keep in mind:
-    Grid classes vs. unit classes
-    Pure Grids consist of two types of classes: the grid class (pure-g) and unit classes (pure-u or pure-u-*)
-    The widths of the units are fractions
-    <div class="price pure-g">
-        <div class="pure-u-1-4">
-            <span class="price-head">Price:</span>
+    <div id="book-specification" class="pure-g content-wrapper">
+        <div class="pure-u-1-3">
+            {% load staticfiles %}
+            <img class="pure-img-responsive" src="{% static "img/books/book_covers/Harry_Potter_and_his_Friends.jpeg" %}" alt="{{ book.name }}">
         </div>
-        <div class="pure-u-1-4">
-            <i class="fa fa-rmb fa-lg"></i>
-            <span class="price-number">11.00</span>
+        <div class="pure-u-2-3">
+            <h1>{{ book.name }}</h1>
+            <p>
+            {{ book.description }}
+            <div class="price pure-g">
+                <div class="pure-u-1-4">
+                    <span class="price-head">Price:</span>
+                </div>
+                <div class="pure-u-1-4">
+                    <i class="fa fa-rmb fa-lg"></i>
+                    <span class="price-number">{{ book.price }}</span>
+                </div>
+            </div>
+            <div class="shopping">
+                <form action class="pure-form form-buy">
+                    <input type="hidden" value="{{ book.isbn }}" name="book_isbn">
+                    <input type="hidden" value="/generate_order" name="next">
+                    <button class="pure-button button-buy button-large" src="#">
+                        Buy
+                    </button>
+                </form>
+                <form action>
+                    <input type="hidden" value="{{ book.isbn }}" name="book_isbn">
+                    <input type="hidden" value="{{ request.path }}" name="next">
+                    <button class="pure-button button-checkout button-large" href="#">
+                        <i class="fa fa-shopping-cart fa-lg"></i>
+                        Add to Cart
+                    </button>
+                </form>
+            </div>
+            </p>
         </div>
-    
     </div>
-    <div class="shopping">
-        <a class="pure-button button-buy button-large" href="#">
-            Buy
-        </a>
-        <a class="pure-button button-checkout button-large" href="#">
-            <i class="fa fa-shopping-cart fa-lg"></i>
-            Add to Cart
-        </a>
-    </div>
-    </p>
-</div>
-</div>
-<div id="book-comment" class="pure-g content-wrapper">
-</div>
-<div id="book-recommend" class="pure-g content-wrapper">
-    <div class="pure-u-1-4">
-        <div class="book-cover">
-            <img src="" alt="">
-        </div>
-        <div class="book-title">Harry Potter and his Friends2</div>
-    </div>
-    <div class="pure-u-1-4">
-        <div class="book-cover">
-            <img src="" alt="">
-        </div>
-        <div class="book-title">Harry Potter and his Friends2</div>
-    </div>
-    <div class="pure-u-1-4">
-        <div class="book-cover">
-            <img src="" alt="">
-        </div>
-        <div class="book-title">Harry Potter and his Friends2</div>
-    </div>
-    <div class="pure-u-1-4">
-        <div class="book-cover">
-            <img src="" alt="">
-        </div>
-        <div class="book-title">Harry Potter and his Friends2</div>
-    </div>
-</div>
-<div id="basic-info" class="content-wrapper">
-    <div>publisher: lalala Publisher.co</div>
-    <div>book name: lalalalallalal</div>
-    <div>page number: 111111</div>
-    <div>language: Chinese</div>
-    <div>isbn: 123141-31231-3123-131</div>
-</div>
-<div id="comment" class="content-wrapper">
 
-</div>
+    <div id="book-comment" class="pure-g content-wrapper">
+    </div>
+
+    <div id="book-recommend" class="pure-g content-wrapper">
+        <div class="pure-u-1-4">
+            <div class="book-cover">
+                <img src="" alt="">
+            </div>
+            <div class="book-title">Harry Potter and his Friends2</div>
+        </div>
+        <div class="pure-u-1-4">
+            <div class="book-cover">
+                <img src="" alt="">
+            </div>
+            <div class="book-title">Harry Potter and his Friends2</div>
+        </div>
+        <div class="pure-u-1-4">
+            <div class="book-cover">
+                <img src="" alt="">
+            </div>
+            <div class="book-title">Harry Potter and his Friends2</div>
+        </div>
+        <div class="pure-u-1-4">
+            <div class="book-cover">
+                <img src="" alt="">
+            </div>
+            <div class="book-title">Harry Potter and his Friends2</div>
+        </div>
+    </div>
+    <div id="basic-info" class="content-wrapper">
+        <div>publisher: {{ book.publisher }}</div>
+        <div>book name: {{ book.name }}</div>
+        <div>page number: {{ book.page_number }}</div>
+        <div>language: {{ book.language }}</div>
+        <div>isbn: {{ book.isbn }}</div>
+    </div>
 </div>
 
 {% endblock %}

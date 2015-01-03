@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %} 
+<div class="header">
+    <h2>All Books</h2>
+</div>
+<div class="content search-wrapper">
+    <form class="pure-form">
+        <div class="pure-g">
+            <div class="pure-u-1-6"></div>
+            <div class="pure-u-2-3">
+                <input type="text" name="q" placeholder="Type some keywords..." class="pure-input-1 pure-input-rounded" value="{{ last_content }}">
+            </div>
+            <div class="pure-u-1-6">
+                <button class="pure-button pure-button-primary search-button" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    <div id="all-books" class="all-books-wrapper pure-g">
+        <div class="table-responsive pure-u-1-1">
+            <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>isbn</th>
+                        <th>Price</th>
+                        <th>Publish Date</th>
+                        <th>Publisher</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for book in all_books %}
+                <tr class="{% cycle 'pure-table-odd' 'pure-table-even' %}">
+                    <td>
+                        <a href="/books/{{ book.isbn }}">
+                            {{ book.name }}
+                        </a>
+                    </td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>{{ book.publish_date }}</td>
+                    <td>{{ book.publisher }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

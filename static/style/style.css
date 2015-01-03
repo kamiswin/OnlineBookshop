@@ -49,6 +49,7 @@
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+.button-register,
 .button-success {
     background: rgb(28, 184, 65); /* this is a green */
 }
@@ -73,6 +74,70 @@
     border-bottom: 1px solid #eee;
 }
 
+.search-wrapper,
 .book-specification-wrapper {
-    margin-top:50px;
+    margin-top:30px;
+}
+
+.user-info-detail-wrapper {
+    margin-left: 50px;
+}
+
+.pure-controls {
+    margin-top: 20px;
+}
+
+.form-buy {
+    float: left;
+    margin-right: 10px;
+}
+
+.table-responsive {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.table-responsive table {
+    width:100%;
+    min-width:35.5em;
+}
+
+.badge {
+    float: right;
+    margin-right: 10px;
+}
+
+.search-button {
+    margin-left: 10px;
+}
+
+.all-books-wrapper {
+    margin-top: 40px;
+}
+
+.order-controls {
+    float: right;
+}
+
+.order-controls .total-price-show,
+.order-controls .button-buy {
+    margin-top:10px;
+    font-size:24px;
+}
+
+.order-controls .total-price-show .total-price {
+    color: red;
+    float: right;
+}
+
+.controls-number {
+    float: right;
+}
+
+.item-number {
+    vertical-align: middle;
+}
+
+.item-number {
+    font-size:22px;
 }

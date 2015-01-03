@@ -1,12 +1,65 @@
 {% extends "base.html" %}
-{% block title %}yyypasserby{% endblock %}
+{% block title %}User Info - {{ user.username }}{% endblock %}
 {% block content %} 
+<div class="header">
+    <h1>Account Center</h1>
+</div>
 <div class="content">
-    <div id="user-info" class="content-wrapper pure-g user-info-layout">
-        <div id="user-head" class="pure-u-1-4">
-            <img class="pure-img-responsive" src="" alt="">
+    <div id="user-info" class="content-wrapper user-info-layout">
+        <h3>User Information</h3>
+        <div class="pure-g">
+            <div id="user-head" class="pure-u-1-3">
+                {% load staticfiles %}
+                <img class="pure-img-responsive" src="{% static "img/users/user_heads/default-user-image.png" %}" alt="">
+            </div>
+            <div id="use-detail" class="pure-u-2-3">
+                <div class="user-info-detail-wrapper">
+                    <div id="user_name">{{ user.username }}</div>
+                    <div id="email">{{ user.email }}</div>
+                    <div id="address">{{ user.address }}</div>
+                    <div class="controls">
+                        <form class="pure-form" action="/accounts/logout">
+                            <button class="pure-button pure-button-primary"><i class="fa fa-sign-out"></i> Logout</button>
+                            <input type="hidden" name="next" value="/" />
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="use-detail" class="pure-u-3-4">
+    </div>
+    <div class="order_info">
+        <h3>Orders Information</h3>
+        <div id="uncomplete_order" class="uncomplete">
+            <h3>Uncomplete Orders</h3>
+            {% for order in uncomplete_orders %}
+            <p>{{ order.get_description }} | {{ order.get_totalprice }} | {{ order.date }}</p>
+            {% empty %}
+            <div class="empty_message">
+                Currently, there are no uncomplete orders. Go to our book repo to look for your favorites.
+            </div>
+            {% endfor %}
+        </div>
+        <hr/>
+        <div id="processing_order" class="processing">
+            <h3>Processing Orders</h3>
+            {% for order in processing_orders %}
+            <p>{{ order.get_description }} | {{ order.get_totalprice }} | {{ order.date }}</p>
+            {% empty %}
+            <div class="empty_message">
+                Currently, there are no processing orders. Go to our book repo to look for your favorites.
+            </div>
+            {% endfor %}
+        </div>
+        <hr/>
+        <div id="complete_order" class="complete">
+            <h3>Complete Orders</h3>
+            {% for order in complete_orders %}
+            <p>{{ order.get_description }} | {{ order.get_totalprice }} | {{ order.date }}</p>
+            {% empty %}
+            <div class="empty_message">
+                Currently, there are no complete orders. Go to our book repo to look for your favorites.
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

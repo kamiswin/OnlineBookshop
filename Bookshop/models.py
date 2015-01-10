@@ -1,13 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+import base64
+import random
 
 class BookHotestManager(models.Manager):
     def get_hotest_books(self):
-        return super(BookManager, self).get_queryset()
+        return super(BookHotestManager, self).get_queryset()[:4]
 
 class BookLatestManager(models.Manager):
-    def get_hotest_books(self):
-        return super(BookManager, self).get_queryset()
+    def get_latest_books(self):
+        return super(BookLatestManager, self).get_queryset()[:4]
+
+class OrderDecryptManager(models.Manager):
+    def get_encrypt_order(self, oid):
+        key = base64.b64decode(oid)
+        t_oid = int(key[: key.find('|')])
+        return super(OrderDecryptManager, self).get_queryset().get(oid=t_oid)
 
 class Book(models.Model):
     bid = models.AutoField(primary_key = True)
@@ -19,6 +27,8 @@ class Book(models.Model):
     publisher = models.CharField(max_length=1000)
     page_number = models.IntegerField()
     language = models.CharField(max_length=200)
+    related_books = models.ManyToManyField("self")
+    cover_image = models.CharField(max_length=100)
 
     objects = models.Manager()
     hotest_objects = BookHotestManager() 
@@ -27,14 +37,34 @@ class Book(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_header_description(self):
+        rt = self.description
+        if len(rt) > 200:
+            rt = rt[:200] + '...'
+        return rt
+
+    def get_related_books(self):
+        books = self.related_books.all()
+        return random.sample(books, 4)
 
 class Account(AbstractUser):
     address = models.TextField()
     recommend_books = models.ManyToManyField(Book, related_name='accounts_should_recommend_this_book')
     shop_cart = models.ManyToManyField(Book, through='ShopCart', through_fields=('aid', 'bid'))
+    comments = models.ManyToManyField(Book, related_name='comments_on_this_book', through='Comment', through_fields=('aid', 'bid'))
 
     def __unicode__(self):
         return self.username + ' ' + self.address
+
+    def get_recommend_books(self):
+        orders = self.order_set.all()
+        all_related = []
+        for order in orders:
+            for book in order.books.all():
+                all_related.extend(book.related_books.all())
+        
+        length = 4 if (len(all_related) > 4) else len(all_related)
+        return random.sample(all_related, length)
 
 States = (
         ('u', 'uncomplete'),
@@ -48,12 +78,16 @@ class Order(models.Model):
     aid = models.ForeignKey(Account)
     books = models.ManyToManyField(Book, through='OrderBookRelation', through_fields=('oid', 'bid'))
     date = models.DateTimeField()
+    decrypt_objects = OrderDecryptManager()
 
     class Meta:
         ordering = ['-date']
 
     def __unicode__(self):
         return self.get_description()
+
+    def get_id(self):
+        return base64.b64encode(str(self.oid) + '|' + str(self.date))
 
     def get_description(self):
         description = ""
@@ -84,3 +118,11 @@ class ShopCart(models.Model):
     bid = models.ForeignKey(Book)
     number_of_book = models.IntegerField()
 
+class Comment(models.Model):
+    bid = models.ForeignKey(Book)
+    aid = models.ForeignKey(Account)
+    content = models.CharField(max_length=2000)
+    date = models.DateTimeField()
+
+    def get_user_info(self):
+        return self.aid.username

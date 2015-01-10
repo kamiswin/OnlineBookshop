@@ -6,4 +6,5 @@ admin.site.register(models.Account)
 admin.site.register(models.Order)
 admin.site.register(models.OrderBookRelation)
 admin.site.register(models.ShopCart)
+admin.site.register(models.Comment)
 # Register your models here.

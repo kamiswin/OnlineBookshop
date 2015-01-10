@@ -2,7 +2,7 @@
 {% block title %}Search{% endblock %}
 {% block content %} 
 <div class="header">
-    <h2>All Books</h2>
+    <h1>All Books</h1>
 </div>
 <div class="content search-wrapper">
     <form class="pure-form">
@@ -18,19 +18,17 @@
     </form>
     <div id="all-books" class="all-books-wrapper pure-g">
         <div class="table-responsive pure-u-1-1">
-            <table class="pure-table">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>isbn</th>
                         <th>Price</th>
-                        <th>Publish Date</th>
-                        <th>Publisher</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for book in all_books %}
-                <tr class="{% cycle 'pure-table-odd' 'pure-table-even' %}">
+                <tr class="">
                     <td>
                         <a href="/books/{{ book.isbn }}">
                             {{ book.name }}
@@ -38,8 +36,6 @@
                     </td>
                     <td>{{ book.isbn }}</td>
                     <td>{{ book.price }}</td>
-                    <td>{{ book.publish_date }}</td>
-                    <td>{{ book.publisher }}</td>
                 </tr>
                 {% endfor %}
                 </tbody>

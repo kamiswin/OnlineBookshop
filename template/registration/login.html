@@ -3,7 +3,7 @@
 {% block content %} 
 
 <div class="header">
-    <h2>Login | Register</h2>
+    <h1>Login | Register</h1>
 </div>
 <div id="main" class="content pure-g">
     <div id="main" class="pure-u-1-2">
@@ -27,7 +27,7 @@
                 </fieldset>
 
                 {% if form.errors %}
-                <p class="error">Sorry, that's not a valid username or password</p>
+                <div class="alert alert-danger">Sorry, that's not a valid username or password</div>
                 {% endif %}
             </form>
         </div>

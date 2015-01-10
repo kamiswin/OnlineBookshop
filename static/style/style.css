@@ -71,7 +71,6 @@
 }
 
 .content-wrapper {
-    border-bottom: 1px solid #eee;
 }
 
 .search-wrapper,
@@ -79,8 +78,55 @@
     margin-top:30px;
 }
 
+.book-image {
+    height: 350px;
+    width: 230px;
+}
+
+.related-books {
+    height: 200px;
+}
+
+.book-image-sm {
+    height: 180px;
+    width: 130px;
+}
+
+.book-details > h1 {
+    font-size: 48px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.book-details > .book-description {
+    font-size: 20px;
+}
+
+.book-details > .price {
+    margin: 15px 0;
+}
+
+.price-head {
+    font-size: 30px;
+}
+
+.price-number {
+    font-size: 30px;
+    color: red;
+}
+
 .user-info-detail-wrapper {
-    margin-left: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.user-info-detail-wrapper > .user-name {
+    font-size: 40px;
+}
+
+.user-info-detail-wrapper > .user-email {
+}
+.user-info-detail-wrapper > .user-address {
 }
 
 .pure-controls {
@@ -92,17 +138,15 @@
     margin-right: 10px;
 }
 
-.table-responsive {
-    margin-left:auto;
-    margin-right:auto;
+.form-buy > button {
+    font-size: 20px;
 }
 
-.table-responsive table {
-    width:100%;
-    min-width:35.5em;
+.form-cart > button {
+    font-size: 20px;
 }
 
-.badge {
+.m-badge {
     float: right;
     margin-right: 10px;
 }
@@ -141,3 +185,54 @@
 .item-number {
     font-size:22px;
 }
+
+.user-head-image {
+    width: 200px;
+    height: 200px;
+}
+
+.user-head-image-sm {
+    width: 64px;
+    height: 64px;
+}
+
+.complete-order-area,
+.uncomplete-order-area,
+.processing-order-area {
+    /*padding: 10px 15px;*/
+}
+
+.complete-order-area {
+    /*background: #fcebbd;*/
+}
+
+.uncomplete-order-area {
+    /*background: #E6E6E6;*/
+}
+
+.processing-order-area {
+    /*background: #d3eda3;*/
+}
+
+.specification-bottom {
+    margin-top: 30px;
+}
+
+.empty_message {
+    font-size: 16px;
+    margin: 10px 15px;
+}
+
+.book-info-detailed {
+    font-size: 24px;
+}
+
+.comment-area {
+    padding: 15px 15px;
+}
+
+.header-img {
+    margin: 0 60px;
+    float: left
+}
+

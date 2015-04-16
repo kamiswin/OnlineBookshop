@@ -1,5 +1,4 @@
 #Online Bookshop
-**Report for Assignment 6.3**
 
 成员
 
@@ -80,112 +79,112 @@
 
 - 浏览最新上架的图书和热销书籍：进入[网站首页](http://online-bookshop.herokuapp.com/)，或者点击网站图标“Bookshop”，可以浏览新书上架和热销书籍。横幅为数据库内的新入书籍。用户可以更具自己的喜好选择相关的书籍进行浏览。
 
-![index](index.png)
+![index](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/index.png)
 
 - 使用网站导航栏：在用户的每个页面左部都设置了一个导航栏方便用户的使用，用户可以更具自己的需求请求响应的页面,如下图:
 
-![navbar](navbar2.png)
+![navbar](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/navbar2.png)
 
 - 登录：已经拥有该网站的会员资格的匿名用户可以点击页面右上方的“Account”进入登录页面，输入自己的用户名和密码，登录到该系统，任何会员需要的功能都会直接跳到登陆页面，登陆成功后返回原先页面。登录页面如下：
 
-![login](login.png)
+![login](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/login.png)
 
 - 注册会员：没有该网站会员权限的用户可以点击登陆页面中的“Register”按钮进入用户注册页面，如下图：
 
-![register](register.png)
+![register](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/register.png)
 
 在该页面填写相关的信息后即可注册为本网站的会员。（用户名必须是没有注册过的用户名，若你填写的用户名已注册过则会提示你输入另一个用户名）
 
 - 搜索书籍：用户可点击导航栏中的“Books”进入搜索书籍页面，如下图：
 
-![search](search.png)
+![search](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/search.png)
 
 用户可以同过搜索书名进行搜索
 
-![search1](search1.png)
+![search1](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/search1.png)
 
 - 浏览书籍：用户可点击任意页面中存在的书籍图片查看该书籍（书名的链接或图片的链接），如下图：
 
-![book](book.png)
+![book](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/book.png)
 
 - 查看书籍详细信息：该页面中有书籍的详细信息，在下部的“Book Info”中，如下图：
 
-![book_info](book_info.png)
+![book_info](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/book_info.png)
 
 - 查看与该书籍相关的书籍：在下部的“Related”中，如下图：
 
-![related](related.png)
+![related](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/related.png)
 
 如果用户想要查看相关书籍的详细信息，也可以直接点击进入查看。
 
 - 查看用户对书籍评论：在下部的“Comments”中，如下图：
 
-![comments](comments.png)
+![comments](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/comments.png)
 
 评论由用户购买后评价生成，将在后面的购买系统中做详细介绍
 
 - 查看网站帮助：点击导航栏中的“Help”，显示网站的使用说明，如下图：
 
-![help](help.png)
+![help](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/help.png)
 
 ###会员用户使用说明
 会员用户除了拥有匿名用户的所有功能之外，还包括以下功能。
 
 - 购买书籍：用户点击书籍详情页面的“Buy”或者点击导航栏中的“Checkout”，进入生成订单页面，如下图: 
 
-![checkout](checkout.png)
+![checkout](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/checkout.png)
 
 该页面中，可以任意的增加或减少书本的数量，并且可以将书本从订单中删除。
 
 - 加入购物车：用户点击书籍详情页面的“Add to Cart”将书籍加入购物车。购物车中商品的数量将在导航栏中的“Checkout”条目的右侧显示。如下图：
 
-![cart](cart.png)
+![cart](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/cart.png)
 
 - 购买：用户点击订单页面的“Go to Pay”进行支付，网站将立刻确认订单，并且跳转到用户界面。如下图
 
-![pay](pay.png)
+![pay](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/pay.png)
 
 - 确认收货并且评论：用户点击Uncomment orders中的“comment”，可以确认收货并且为书本添加评论。如下图：
 
-![make_comment](make_comment.png)
+![make_comment](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/make_comment.png)
 
 用户可以输入评论，点击确定，该订单就会被确认，并且相应的评论就会添加到相应的书籍上。
 
-![make_comment1](make_comment1.png)
+![make_comment1](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/make_comment1.png)
 
-![make_comment2](make_comment2.png)
+![make_comment2](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/make_comment2.png)
 
 - 查看推荐：我们会根据用户的订单，推测用户的看书喜好，给出相应的推荐，推荐的范围很广，每次会随机选出4本。推荐可以在多个地方看见，比如：Account，Index。如下图
 
-![recommend1](recommend1.png)
+![recommend1](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/recommend1.png)
 
-![recommend2](recommend2.png)
+![recommend2](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/recommend2.png)
 
 - 登出：用户可以点击“Account”中的“logout”登出。
 
 ###管理员使用说明
 管理员能够增加，删除，修改，查询网站内的所有实体对象。
 
-![admin](admin.png)
+![admin](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/admin.png)
 
 这里以Book为例。
 
 - 增加Book：点击Bookshop栏目下Book条目的“Add”按钮，填写相应信息。
 
-![add](add.png)
+![add](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/add.png)
 
 - 查询或者修改Book：点击“Change”按钮，选择相应的Book，在详情页中修改内容。
 
-![change](change.png)
+![change](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/change.png)
 
 - 删除Book：点击“Change”按钮，在复选框中选中相应Book，选择Action下拉框中的“Delete selected books”，点击“Go”，删除Book。
 
-![delete](delete.png)
+![delete](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/delete.png)
 
 ###API
 网站提供了一套可供应用程序调用的web API
 
-![api](api.png)
+![api](https://raw.githubusercontent.com/yyypasserby/OnlineBookshop/master/INTRO_IMAGE/api.png)
 
 ## 实验体会
 - 项目需求非常明确，而且也是比较普通的一个电商网站，所以前期设计上并未太多困难。为了在编码过程中不致于反复修改，所以在数据库设计时组内花了一些时间来讨论，并设计了较多的关系表以提高查询效率。
